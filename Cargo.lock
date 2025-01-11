@@ -90,6 +90,14 @@ checksum = "34ac096ce696dc2fcabef30516bb13c0a68a11d30131d3df6f04711467681b04"
 [[package]]
 name = "application"
 version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "axum 0.8.1",
+ "tokio",
+ "tower 0.5.2",
+ "tower-http",
+ "tracing",
+]
 
 [[package]]
 name = "async-compression"

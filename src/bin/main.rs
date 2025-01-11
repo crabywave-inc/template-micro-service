@@ -1,5 +1,6 @@
 use std::sync::Arc;
 
+use application::http::{HttpServer, HttpServerConfig};
 use clap::Parser;
 use infrastructure::env::{AppEnv, Env};
 
@@ -24,7 +25,10 @@ async fn main() -> anyhow::Result<()> {
 
     init_logger(Arc::clone(&env));
 
-    println!("env: {:?}", &env);
+    let server_config = HttpServerConfig::new(env.port.clone());
+    let http_server = HttpServer::new(server_config).await?;
+
+    http_server.run().await?;
 
     Ok(())
 }
