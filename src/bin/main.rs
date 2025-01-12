@@ -1,8 +1,10 @@
 use std::sync::Arc;
 
-use application::http::{HttpServer, HttpServerConfig};
 use clap::Parser;
-use infrastructure::env::{AppEnv, Env};
+use crabywave::{
+    application::http::{HttpServer, HttpServerConfig},
+    infrastructure::env::{AppEnv, Env},
+};
 
 fn init_logger(env: Arc<Env>) {
     match env.env {
